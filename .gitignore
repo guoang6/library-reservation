@@ -3,8 +3,7 @@
 Thumbs.db
 $RECYCLE.BIN/
 config.js
-*setting.js
-cloudfunctions/
+setting.js
 # macOS
 .DS_Store
 .fseventsd
@@ -14,4 +13,3 @@ cloudfunctions/
 
 # Node.js
 node_modules/
-cloudfunctions/
