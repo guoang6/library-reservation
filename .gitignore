@@ -2,8 +2,8 @@
 [Dd]esktop.ini
 Thumbs.db
 $RECYCLE.BIN/
-.cloudfunctions/mcloud/config/config.js
-.miniprogram/setting/setting.js
+*.config.js
+*.setting.js
 # macOS
 .DS_Store
 .fseventsd
