@@ -2,8 +2,9 @@
 [Dd]esktop.ini
 Thumbs.db
 $RECYCLE.BIN/
-*.config.js
-*.setting.js
+config.js
+*setting.js
+cloudfunctions/
 # macOS
 .DS_Store
 .fseventsd
@@ -13,3 +14,4 @@ $RECYCLE.BIN/
 
 # Node.js
 node_modules/
+cloudfunctions/
