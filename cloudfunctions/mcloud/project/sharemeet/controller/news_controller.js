@@ -1,6 +1,6 @@
 /**
  * Notes: 资讯模块控制器
- * Ver : CCMiniCloud Framework 2.0.1 ALL RIGHTS RESERVED BY cclinux0730 (wechat)
+ * Ver : CCMiniCloud Framework 2.0.1 ALL RIGHTS RESERVED BY g13340110576 (wechat)
  * Date: 2020-09-29 04:00:00 
  */
 

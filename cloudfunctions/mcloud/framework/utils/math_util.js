@@ -1,6 +1,6 @@
  /**
   * Notes: 数学计算相关操作函数
-  * Ver : CCMiniCloud Framework 2.35.1 ALL RIGHTS RESERVED BY cclinux0730 (wechat)
+  * Ver : CCMiniCloud Framework 2.35.1 ALL RIGHTS RESERVED BY g13340110576 (wechat)
   * Date: 2021-10-04 04:00:00 
   */
 

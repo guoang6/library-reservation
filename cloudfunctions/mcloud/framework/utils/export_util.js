@@ -1,6 +1,6 @@
 /**
  * Notes: 导出相关函数
- * Ver : CCMiniCloud Framework 2.0.14 ALL RIGHTS RESERVED BY cclinux0730 (wechat)
+ * Ver : CCMiniCloud Framework 2.0.14 ALL RIGHTS RESERVED BY g13340110576 (wechat)
  * Date: 2022-05-25 04:00:00 
  */
 

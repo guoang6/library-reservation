@@ -1,6 +1,6 @@
 /**
  * Notes: 错误代码定义
- * Ver : CCMiniCloud Framework 2.4.1 ALL RIGHTS RESERVED BY Cclinux0730 (wechat)
+ * Ver : CCMiniCloud Framework 2.4.1 ALL RIGHTS RESERVED BY g13340110576 (wechat)
  * Date: 2020-09-05 04:00:00 
  */
 module.exports = {

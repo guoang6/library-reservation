@@ -1,6 +1,6 @@
 /**
  * Notes: 测试数据构造类
- * Ver : CCMiniCloud Framework 2.0.1 ALL RIGHTS RESERVED BY cclinux0730 (wechat)
+ * Ver : CCMiniCloud Framework 2.0.1 ALL RIGHTS RESERVED BY g13340110576 (wechat)
  * Date: 2021-05-26 14:00:00 
  */ 
 const timeUtil = require('../utils/time_util.js');

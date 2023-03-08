@@ -1,6 +1,6 @@
 /**
  * Notes: 云初始化实例
- * Ver : CCMiniCloud Framework 2.2.1 ALL RIGHTS RESERVED BY cclinux0730 (wechat)
+ * Ver : CCMiniCloud Framework 2.2.1 ALL RIGHTS RESERVED BY g13340110576 (wechat)
  * Date: 2020-09-05 04:00:00 
  */
 

@@ -1,6 +1,6 @@
 /**
  * Notes: 登记模块控制器
- * Ver : CCMiniCloud Framework 2.0.1 ALL RIGHTS RESERVED BY cclinux0730 (wechat)
+ * Ver : CCMiniCloud Framework 2.0.1 ALL RIGHTS RESERVED BY g13340110576 (wechat)
  * Date: 2022-06-23 04:00:00 
  */
 

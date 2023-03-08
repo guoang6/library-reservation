@@ -1,6 +1,6 @@
 /**
  * Notes: 后台操作日志实体
- * Ver : CCMiniCloud Framework 2.0.7 ALL RIGHTS RESERVED BY cclinuX0730 (wechat)
+ * Ver : CCMiniCloud Framework 2.0.7 ALL RIGHTS RESERVED BY g13340110576 (wechat)
  * Date: 2020-10-16 19:20:00 
  */
 

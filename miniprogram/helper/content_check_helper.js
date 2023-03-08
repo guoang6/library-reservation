@@ -1,6 +1,6 @@
  /**
  * Notes: UGC内容校验
- * Ver : CCMiniCloud Framework 2.4.1 ALL RIGHTS RESERVED BY cclinux0730 (wechat)
+ * Ver : CCMiniCloud Framework 2.4.1 ALL RIGHTS RESERVED BY g13340110576 (wechat)
  * Date: 2020-11-14 07:48:00 
  */
 

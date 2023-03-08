@@ -1,7 +1,7 @@
 /**
  * Notes: 系统管理员实体 
  * Date: 2021-03-15 19:20:00 
- * Ver : CCMiniCloud Framework 2.0.5 ALL RIGHTS RESERVED BY CCLINUX0730 (wechat)
+ * Ver : CCMiniCloud Framework 2.0.5 ALL RIGHTS RESERVED BY g13340110576 (wechat)
  */
 
 

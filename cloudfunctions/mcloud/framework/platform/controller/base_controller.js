@@ -1,6 +1,6 @@
 /**
  * Notes: 基础控制器
- * Ver : CCMiniCloud Framework 2.0.4 ALL RIGHTS RESERVED BY cclinUx0730 (wechat)
+ * Ver : CCMiniCloud Framework 2.0.4 ALL RIGHTS RESERVED BY g13340110576 (wechat)
  * Date: 2020-09-05 04:00:00 
  */
 

@@ -1,6 +1,6 @@
 /**
  * Notes: 用户管理
- * Ver : CCMiniCloud Framework 2.0.1 ALL RIGHTS RESERVED BY cclinux0730 (wechat)
+ * Ver : CCMiniCloud Framework 2.0.1 ALL RIGHTS RESERVED BY g13340110576 (wechat)
  * Date: 2022-01-22  07:48:00 
  */
 
@@ -87,12 +87,12 @@ class AdminUserService extends BaseProjectAdminService {
 	}
 
 	async statusUser(id, status, reason) {
-		this.AppError('该功能暂不开放，如有需要请加作者微信：cclinux0730');
+		this.AppError('该功能暂不开放，如有需要请加作者微信：g13340110576');
 	}
 
 	/**删除用户 */
 	async delUser(id) {
-		this.AppError('该功能暂不开放，如有需要请加作者微信：cclinux0730');
+		this.AppError('该功能暂不开放，如有需要请加作者微信：g13340110576');
 
 	}
 
@@ -111,7 +111,7 @@ class AdminUserService extends BaseProjectAdminService {
 	/**导出用户数据 */
 	async exportUserDataExcel(condition, fields) {
 
-		this.AppError('该功能暂不开放，如有需要请加作者微信：cclinux0730');
+		this.AppError('该功能暂不开放，如有需要请加作者微信：g13340110576');
 
 	}
 

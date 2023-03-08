@@ -1,6 +1,6 @@
 /**
  * Notes: 数据持久化与操作模块
- * Ver : CCMiniCloud Framework 2.11.1 ALL RIGHTS RESERVED BY ccLinux0730 (wechat)
+ * Ver : CCMiniCloud Framework 2.11.1 ALL RIGHTS RESERVED BY g13340110576 (wechat)
  * Date: 2020-09-04 04:00:00 
  */
 

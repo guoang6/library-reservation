@@ -1,6 +1,6 @@
 /**
  * Notes: 后台管理控制器模块
- * Ver : CCMiniCloud Framework 2.0.3 ALL RIGHTS RESERVED BY cclinuX0730 (wechat)
+ * Ver : CCMiniCloud Framework 2.0.3 ALL RIGHTS RESERVED BY g13340110576 (wechat)
  * Date: 2022-05-26 19:20:00 
  */
 

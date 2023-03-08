@@ -1,6 +1,6 @@
 /**
  * Notes: 基础业务逻辑
- * Ver : CCMiniCloud Framework 2.0.9 ALL RIGHTS RESERVED BY cclinux0730 (wechat)
+ * Ver : CCMiniCloud Framework 2.0.9 ALL RIGHTS RESERVED BY g13340110576 (wechat)
  * Date: 2022-04-24 04:00:00 
  */
 

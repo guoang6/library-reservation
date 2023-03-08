@@ -1,6 +1,6 @@
 /**
  * Notes: 微信缓存二次封装，有设置时效性的封装
- * Ver : CCMiniCloud Framework 3.0.1 ALL RIGHTS RESERVED BY cclinux0730 (wechat)
+ * Ver : CCMiniCloud Framework 3.0.1 ALL RIGHTS RESERVED BY g13340110576 (wechat)
  * Date: 2020-11-14 07:48:00 
  */
 const helper = require('./helper.js');

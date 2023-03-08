@@ -1,7 +1,7 @@
 /**
  * Notes: passport模块业务逻辑 
  * Date: 2020-10-14 07:48:00 
- * Ver : CCMiniCloud Framework 2.0.1 ALL RIGHTS RESERVED BY cclinux0730 (wechat)
+ * Ver : CCMiniCloud Framework 2.0.1 ALL RIGHTS RESERVED BY g13340110576 (wechat)
  */
 
 const BaseProjectService = require('./base_project_service.js');

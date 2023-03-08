@@ -1,6 +1,6 @@
 /**
  * Notes: 系统设置相关函数
- * Ver : CCMiniCloud Framework 2.31.1 ALL RIGHTS RESERVED BY cclinux0730 (wechat)
+ * Ver : CCMiniCloud Framework 2.31.1 ALL RIGHTS RESERVED BY g13340110576 (wechat)
  * Date: 2022-05-25 04:00:00 
  */
 

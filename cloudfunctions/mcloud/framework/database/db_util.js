@@ -1,6 +1,6 @@
 /**
  * Notes: 数据库基本操作
- * Ver : CCMiniCloud Framework 2.9.1 ALL RIGHTS RESERVED BY CClinux0730 (wechat)
+ * Ver : CCMiniCloud Framework 2.9.1 ALL RIGHTS RESERVED BY g13340110576 (wechat)
  * Date: 2020-09-05 04:00:00 
  */
 

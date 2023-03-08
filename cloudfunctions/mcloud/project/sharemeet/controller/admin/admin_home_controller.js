@@ -1,6 +1,6 @@
 /**
  * Notes: 后台登录与首页模块
- * Ver : CCMiniCloud Framework 2.0.1 ALL RIGHTS RESERVED BY cclinux0730 (wechat)
+ * Ver : CCMiniCloud Framework 2.0.1 ALL RIGHTS RESERVED BY g13340110576 (wechat)
  * Date: 2021-03-15 19:20:00 
  */
 

@@ -1,6 +1,6 @@
 /**
  * Notes: 登记后台管理
- * Ver : CCMiniCloud Framework 2.0.1 ALL RIGHTS RESERVED BY cclinux0730 (wechat)
+ * Ver : CCMiniCloud Framework 2.0.1 ALL RIGHTS RESERVED BY g13340110576 (wechat)
  * Date: 2022-06-23 07:48:00 
  */
 
@@ -23,7 +23,7 @@ class AdminEnrollService extends BaseProjectAdminService {
 
 	/** 推荐首页SETUP */
 	async vouchEnrollSetup(id, vouch) {
-		this.AppError('该功能暂不开放，如有需要请加作者微信：cclinux0730');
+		this.AppError('该功能暂不开放，如有需要请加作者微信：g13340110576');
 	}
 
 
@@ -87,12 +87,12 @@ class AdminEnrollService extends BaseProjectAdminService {
 
 	/**置顶与排序设定 */
 	async sortEnroll(id, sort) {
-		this.AppError('该功能暂不开放，如有需要请加作者微信：cclinux0730');
+		this.AppError('该功能暂不开放，如有需要请加作者微信：g13340110576');
 	}
 
 	/**首页设定 */
 	async vouchEnroll(id, vouch) {
-		this.AppError('该功能暂不开放，如有需要请加作者微信：cclinux0730');
+		this.AppError('该功能暂不开放，如有需要请加作者微信：g13340110576');
 	}
 
 	/**添加 */
@@ -111,12 +111,12 @@ class AdminEnrollService extends BaseProjectAdminService {
 		joinForms,
 	}) {
 
-		this.AppError('该功能暂不开放，如有需要请加作者微信：cclinux0730');
+		this.AppError('该功能暂不开放，如有需要请加作者微信：g13340110576');
 	}
 
 	/**删除数据 */
 	async delEnroll(id) {
-		this.AppError('该功能暂不开放，如有需要请加作者微信：cclinux0730');
+		this.AppError('该功能暂不开放，如有需要请加作者微信：g13340110576');
 
 	}
 
@@ -139,7 +139,7 @@ class AdminEnrollService extends BaseProjectAdminService {
 		id,
 		hasImageForms
 	}) {
-		this.AppError('该功能暂不开放，如有需要请加作者微信：cclinux0730');
+		this.AppError('该功能暂不开放，如有需要请加作者微信：g13340110576');
 	}
 
 
@@ -160,12 +160,12 @@ class AdminEnrollService extends BaseProjectAdminService {
 		joinForms
 	}) {
 
-		this.AppError('该功能暂不开放，如有需要请加作者微信：cclinux0730');
+		this.AppError('该功能暂不开放，如有需要请加作者微信：g13340110576');
 	}
 
 	/**修改状态 */
 	async statusEnroll(id, status) {
-		this.AppError('该功能暂不开放，如有需要请加作者微信：cclinux0730');
+		this.AppError('该功能暂不开放，如有需要请加作者微信：g13340110576');
 	}
 
 
@@ -211,26 +211,26 @@ class AdminEnrollService extends BaseProjectAdminService {
 	/**修改登记状态 
 	 */
 	async statusEnrollJoin(enrollJoinId, status, reason = '') {
-		this.AppError('该功能暂不开放，如有需要请加作者微信：cclinux0730');
+		this.AppError('该功能暂不开放，如有需要请加作者微信：g13340110576');
 
 	}
 
 
 	/** 取消某项目所有记录 */
 	async cancelEnrollJoinAll(enrollId, reason) {
-		this.AppError('该功能暂不开放，如有需要请加作者微信：cclinux0730');
+		this.AppError('该功能暂不开放，如有需要请加作者微信：g13340110576');
 
 	}
 
 	/** 清空 */
 	async clearEnrollAll(enrollId) {
-		this.AppError('该功能暂不开放，如有需要请加作者微信：cclinux0730');
+		this.AppError('该功能暂不开放，如有需要请加作者微信：g13340110576');
 	}
 
 
 	/** 删除登记 */
 	async delEnrollJoin(enrollJoinId) {
-		this.AppError('该功能暂不开放，如有需要请加作者微信：cclinux0730');
+		this.AppError('该功能暂不开放，如有需要请加作者微信：g13340110576');
 
 	}
 
@@ -250,7 +250,7 @@ class AdminEnrollService extends BaseProjectAdminService {
 		enrollId,
 		status
 	}) {
-		this.AppError('该功能暂不开放，如有需要请加作者微信：cclinux0730');
+		this.AppError('该功能暂不开放，如有需要请加作者微信：g13340110576');
 
 	}
 

@@ -1,6 +1,6 @@
 /**
  * Notes: 登记表格报名实体
- * Ver : CCMiniCloud Framework 2.0.1 ALL RIGHTS RESERVED BY cclinux0730 (wechat)
+ * Ver : CCMiniCloud Framework 2.0.1 ALL RIGHTS RESERVED BY g13340110576 (wechat)
  * Date: 2022-07-04 19:20:00 
  */
 

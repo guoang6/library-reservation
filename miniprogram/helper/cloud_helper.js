@@ -1,6 +1,6 @@
 /**
  * Notes: 云操作类库
- * Ver : CCMiniCloud Framework 2.3.1 ALL RIGHTS RESERVED BY cclinux0730 (wechat)
+ * Ver : CCMiniCloud Framework 2.3.1 ALL RIGHTS RESERVED BY g13340110576 (wechat)
  * Date: 2020-11-14 07:48:00 
  */
 
@@ -150,14 +150,14 @@ function callCloud(route, params = {}, options) {
 					if (err && err.errMsg && err.errMsg.includes('-501000') && err.errMsg.includes('Environment not found')) {
 						wx.showModal({
 							title: '',
-							content: '未找到云环境ID，请按手册检查前端配置文件setting.js的配置项【CLOUD_ID】或咨询作者微信cclinux0730',
+							content: '未找到云环境ID，请按手册检查前端配置文件setting.js的配置项【CLOUD_ID】或咨询作者微信g13340110576',
 							showCancel: false
 						});
 
 					} else if (err && err.errMsg && err.errMsg.includes('-501000') && err.errMsg.includes('FunctionName')) {
 						wx.showModal({
 							title: '',
-							content: '云函数未创建或者未上传，请参考手册或咨询作者微信cclinux0730',
+							content: '云函数未创建或者未上传，请参考手册或咨询作者微信g13340110576',
 							showCancel: false
 						});
 

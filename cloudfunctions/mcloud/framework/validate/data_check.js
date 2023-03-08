@@ -1,6 +1,6 @@
 /**
   * Notes: 数据校验类库
- * Ver : CCMiniCloud Framework 2.21.1 ALL RIGHTS RESERVED BY cclinux0730 (wechat)
+ * Ver : CCMiniCloud Framework 2.21.1 ALL RIGHTS RESERVED BY g13340110576 (wechat)
   * Date: 2021-01-07 07:48:00 
   *  
  */

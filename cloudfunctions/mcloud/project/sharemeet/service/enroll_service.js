@@ -1,6 +1,6 @@
 /**
  * Notes: 登记表格模块业务逻辑
- * Ver : CCMiniCloud Framework 3.2.11 ALL RIGHTS RESERVED BY cclinux0730 (wechat)
+ * Ver : CCMiniCloud Framework 3.2.11 ALL RIGHTS RESERVED BY g13340110576 (wechat)
  * Date: 2022-07-04 07:48:00 
  */
 

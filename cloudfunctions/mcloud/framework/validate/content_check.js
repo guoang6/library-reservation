@@ -1,6 +1,6 @@
 /**
  * Notes: 内容审核
- * Ver : CCMiniCloud Framework 2.39.1 ALL RIGHTS RESERVED BY cclinux0730 (wechat)
+ * Ver : CCMiniCloud Framework 2.39.1 ALL RIGHTS RESERVED BY g13340110576 (wechat)
  * Date: 2020-09-05 04:00:00 
  */
 

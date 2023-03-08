@@ -1,6 +1,6 @@
 /**
  * Notes: 资讯后台管理
- * Ver : CCMiniCloud Framework 2.0.1 ALL RIGHTS RESERVED BY cclinux0730 (wechat)
+ * Ver : CCMiniCloud Framework 2.0.1 ALL RIGHTS RESERVED BY g13340110576 (wechat)
  * Date: 2021-07-11 07:48:00 
  */
 
@@ -17,7 +17,7 @@ class AdminNewsService extends BaseProjectAdminService {
 
 	/** 推荐首页SETUP */
 	async vouchNewsSetup(id, vouch) {
-		this.AppError('该功能暂不开放，如有需要请加作者微信：cclinux0730');
+		this.AppError('该功能暂不开放，如有需要请加作者微信：g13340110576');
 	}
 
 	/**添加资讯 */
@@ -29,14 +29,32 @@ class AdminNewsService extends BaseProjectAdminService {
 		desc = '',
 		forms
 	}) {
+		// 入库
+		let data = {
+			NEWS_TITLE: title,
+			NEWS_CATE_ID: cateId,
+			NEWS_CATE_NAME: cateName,
+			NEWS_ORDER: order,
+			NEWS_FORMS: forms,
+			NEWS_DESC: desc,
+		}
 
-
-		this.AppError('该功能暂不开放，如有需要请加作者微信：cclinux0730');
+		let id = await NewsModel.insert(data);
+		return {id}
+		
 	}
 
 	/**删除资讯数据 */
 	async delNews(id) {
-		this.AppError('该功能暂不开放，如有需要请加作者微信：cclinux0730');
+		console.log(id)
+		let where = {
+			_id: id
+		}
+		let effect = await NewsModel.del(where);
+
+		return {
+			effect
+		};
 
 	}
 
@@ -58,7 +76,13 @@ class AdminNewsService extends BaseProjectAdminService {
 		id,
 		hasImageForms
 	}) {
-		this.AppError('该功能暂不开放，如有需要请加作者微信：cclinux0730');
+		console.log(id,hasImageForms)
+		// let where = {
+		// 	NEWS_ID: id
+		// }
+		
+		// await FavModel.insert(data);
+		return
 	}
 
 
@@ -70,8 +94,14 @@ class AdminNewsService extends BaseProjectAdminService {
 		id,
 		content // 富文本数组
 	}) {
-
-		this.AppError('该功能暂不开放，如有需要请加作者微信：cclinux0730');
+		let whereJoin = {
+			_id: id,
+		}
+		let data = {
+			NEWS_CONTENT: content,
+		}
+		await NewsModel.edit(whereJoin, data);
+		return
 
 	}
 
@@ -83,9 +113,14 @@ class AdminNewsService extends BaseProjectAdminService {
 		id,
 		imgList // 图片数组
 	}) {
-
-		this.AppError('该功能暂不开放，如有需要请加作者微信：cclinux0730');
-
+		let whereJoin = {
+			_id: id,
+		}
+		let data = {
+			NEWS_PIC: imgList,
+		}
+		await NewsModel.edit(whereJoin, data);
+		return
 	}
 
 
@@ -100,7 +135,7 @@ class AdminNewsService extends BaseProjectAdminService {
 		forms
 	}) {
 
-		this.AppError('该功能暂不开放，如有需要请加作者微信：cclinux0730');
+		this.AppError('该功能暂不开放，如有需要请加作者微信：g13340110576');
 	}
 
 	/**取得资讯分页列表 */
@@ -164,17 +199,17 @@ class AdminNewsService extends BaseProjectAdminService {
 
 	/**修改资讯状态 */
 	async statusNews(id, status) {
-		this.AppError('该功能暂不开放，如有需要请加作者微信：cclinux0730');
+		this.AppError('该功能暂不开放，如有需要请加作者微信：g13340110576');
 	}
 
 	/**置顶与排序设定 */
 	async sortNews(id, sort) {
-		this.AppError('该功能暂不开放，如有需要请加作者微信：cclinux0730');
+		this.AppError('该功能暂不开放，如有需要请加作者微信：g13340110576');
 	}
 
 	/**首页设定 */
 	async vouchNews(id, vouch) {
-		this.AppError('该功能暂不开放，如有需要请加作者微信：cclinux0730');
+		this.AppError('该功能暂不开放，如有需要请加作者微信：g13340110576');
 	}
 }
 
