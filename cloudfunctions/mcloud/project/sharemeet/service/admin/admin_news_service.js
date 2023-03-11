@@ -17,7 +17,14 @@ class AdminNewsService extends BaseProjectAdminService {
 
 	/** 推荐首页SETUP */
 	async vouchNewsSetup(id, vouch) {
-		this.AppError('该功能暂不开放，如有需要请加作者微信：g13340110576');
+		let whereJoin = {
+			_id: id,
+		}
+		let data = {
+			NEWS_VOUCH: vouch,
+		}
+		await NewsModel.edit(whereJoin, data);
+		return
 	}
 
 	/**添加资讯 */
@@ -46,7 +53,6 @@ class AdminNewsService extends BaseProjectAdminService {
 
 	/**删除资讯数据 */
 	async delNews(id) {
-		console.log(id)
 		let where = {
 			_id: id
 		}
@@ -76,12 +82,13 @@ class AdminNewsService extends BaseProjectAdminService {
 		id,
 		hasImageForms
 	}) {
-		console.log(id,hasImageForms)
-		// let where = {
-		// 	NEWS_ID: id
-		// }
-		
-		// await FavModel.insert(data);
+		let whereJoin = {
+			_id: id,
+		}
+		let data = {
+			NEWS_FORMS: hasImageForms,
+		}
+		await NewsModel.edit(whereJoin, data);
 		return
 	}
 
@@ -134,8 +141,19 @@ class AdminNewsService extends BaseProjectAdminService {
 		desc = '',
 		forms
 	}) {
-
-		this.AppError('该功能暂不开放，如有需要请加作者微信：g13340110576');
+        let whereJoin = {
+			_id: id,
+		}
+		let data = {
+			NEWS_TITLE: title,
+			NEWS_CATE_ID: cateId,
+			NEWS_CATE_NAME: cateName,
+			NEWS_ORDER: order,
+			NEWS_FORMS: forms,
+			NEWS_DESC: desc,
+		}
+		await NewsModel.edit(whereJoin, data);
+		return
 	}
 
 	/**取得资讯分页列表 */
@@ -199,17 +217,38 @@ class AdminNewsService extends BaseProjectAdminService {
 
 	/**修改资讯状态 */
 	async statusNews(id, status) {
-		this.AppError('该功能暂不开放，如有需要请加作者微信：g13340110576');
+		let whereJoin = {
+			_id: id,
+		}
+		let data = {
+			NEWS_STATUS: status,
+		}
+		await NewsModel.edit(whereJoin, data);
+		return
 	}
 
 	/**置顶与排序设定 */
 	async sortNews(id, sort) {
-		this.AppError('该功能暂不开放，如有需要请加作者微信：g13340110576');
+		let whereJoin = {
+			_id: id,
+		}
+		let data = {
+			NEWS_ORDER: sort,
+		}
+		await NewsModel.edit(whereJoin, data);
+		return
 	}
 
 	/**首页设定 */
 	async vouchNews(id, vouch) {
-		this.AppError('该功能暂不开放，如有需要请加作者微信：g13340110576');
+		let whereJoin = {
+			_id: id,
+		}
+		let data = {
+			NEWS_VOUCH: vouch,
+		}
+		await NewsModel.edit(whereJoin, data);
+		return
 	}
 }
 
