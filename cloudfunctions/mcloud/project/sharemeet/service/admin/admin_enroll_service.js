@@ -21,85 +21,9 @@ const EXPORT_ENROLL_JOIN_DATA_KEY = 'EXPORT_ENROLL_JOIN_DATA';
 
 class AdminEnrollService extends BaseProjectAdminService {
 
-    /** 推荐首页SETUP */
-    async vouchEnrollSetup (id, vouch) {
-        this.AppError('该功能暂不开放，如有需要请加作者微信：g13340110576');
-    }
-
-
-    /**取得分页列表 */
-    async getAdminEnrollList ({
-        search, // 搜索条件
-        sortType, // 搜索菜单
-        sortVal, // 搜索菜单
-        orderBy, // 排序
-        whereEx, //附加查询条件
-        page,
-        size,
-        isTotal = true,
-        oldTotal
-    }) {
-
-        orderBy = orderBy || {
-            'ENROLL_ORDER': 'asc',
-            'ENROLL_ADD_TIME': 'desc'
-        };
-        let fields = 'ENROLL_TITLE,ENROLL_CATE_ID,ENROLL_CATE_NAME,ENROLL_EDIT_TIME,ENROLL_ADD_TIME,ENROLL_ORDER,ENROLL_STATUS,ENROLL_VOUCH,ENROLL_JOIN_CNT,ENROLL_EDIT_SET,ENROLL_CANCEL_SET,ENROLL_CHECK_SET,ENROLL_QR,ENROLL_OBJ';
-
-        let where = {};
-        where.and = {
-            _pid: this.getProjectId() //复杂的查询在此处标注PID
-        };
-
-        if (util.isDefined(search) && search) {
-            where.or = [{
-                ENROLL_TITLE: ['like', search]
-            },];
-
-        } else if (sortType && util.isDefined(sortVal)) {
-            // 搜索菜单
-            switch (sortType) {
-                case 'cateId': {
-                    where.and.ENROLL_CATE_ID = String(sortVal);
-                    break;
-                }
-                case 'status': {
-                    where.and.ENROLL_STATUS = Number(sortVal);
-                    break;
-                }
-                case 'vouch': {
-                    where.and.ENROLL_VOUCH = 1;
-                    break;
-                }
-                case 'top': {
-                    where.and.ENROLL_ORDER = 0;
-                    break;
-                }
-                case 'sort': {
-                    orderBy = this.fmtOrderBySort(sortVal, 'ENROLL_ADD_TIME');
-                    break;
-                }
-            }
-        }
-
-        return await EnrollModel.getList(where, fields, orderBy, page, size, isTotal, oldTotal);
-    }
-
-    /**置顶与排序设定 */
-    async sortEnroll (id, sort) {
-        let whereJoin = {
-			_id: id,
-		}
-		let data = {
-			ENROLL_ORDER: sort,
-		}
-		await EnrollModel.edit(whereJoin, data);
-		return
-    }
-
-    /**首页设定 */
-    async vouchEnroll (id, vouch) {
-        let whereJoin = {
+	/** 推荐首页SETUP */
+	async vouchEnrollSetup(id, vouch) {
+		let whereJoin = {
 			_id: id,
 		}
 		let data = {
@@ -107,206 +31,291 @@ class AdminEnrollService extends BaseProjectAdminService {
 		}
 		await EnrollModel.edit(whereJoin, data);
 		return
-    }
-
-    /**添加 */
-    async insertEnroll ({
-        title,
-        cateId,
-        cateName,
+	}
 
 
-        checkSet,
-        cancelSet,
-        editSet,
+	/**取得分页列表 */
+	async getAdminEnrollList({
+		search, // 搜索条件
+		sortType, // 搜索菜单
+		sortVal, // 搜索菜单
+		orderBy, // 排序
+		whereEx, //附加查询条件
+		page,
+		size,
+		isTotal = true,
+		oldTotal
+	}) {
 
-        order,
-        forms,
-        joinForms,
-    }) {
-        // 入库
-        let data = {
-            ENROLL_TITLE: title,
-            ENROLL_CATE_ID: cateId,
-            ENROLL_CATE_NAME: cateName,
+		orderBy = orderBy || {
+			'ENROLL_ORDER': 'asc',
+			'ENROLL_ADD_TIME': 'desc'
+		};
+		let fields = 'ENROLL_TITLE,ENROLL_CATE_ID,ENROLL_CATE_NAME,ENROLL_EDIT_TIME,ENROLL_ADD_TIME,ENROLL_ORDER,ENROLL_STATUS,ENROLL_VOUCH,ENROLL_JOIN_CNT,ENROLL_EDIT_SET,ENROLL_CANCEL_SET,ENROLL_CHECK_SET,ENROLL_QR,ENROLL_OBJ';
 
+		let where = {};
+		where.and = {
+			_pid: this.getProjectId() //复杂的查询在此处标注PID
+		};
 
-            ENROLL_CHECK_SET: checkSet,
-            ENROLL_CANCEL_SET: cancelSet,
-            ENROLL_EDIT_SET: editSet,
+		if (util.isDefined(search) && search) {
+			where.or = [{
+				ENROLL_TITLE: ['like', search]
+			}, ];
 
-            ENROLL_ORDER: order,
-            ENROLL_FORMS: forms,
-            ENROLL_JOIN_FORMS: joinForms,
-        }
+		} else if (sortType && util.isDefined(sortVal)) {
+			// 搜索菜单
+			switch (sortType) {
+				case 'cateId': {
+					where.and.ENROLL_CATE_ID = String(sortVal);
+					break;
+				}
+				case 'status': {
+					where.and.ENROLL_STATUS = Number(sortVal);
+					break;
+				}
+				case 'vouch': {
+					where.and.ENROLL_VOUCH = 1;
+					break;
+				}
+				case 'top': {
+					where.and.ENROLL_ORDER = 0;
+					break;
+				}
+				case 'sort': {
+					orderBy = this.fmtOrderBySort(sortVal, 'ENROLL_ADD_TIME');
+					break;
+				}
+			}
+		}
 
-        const id  = await EnrollModel.insert(data);
-        return {id}
-    }
+		return await EnrollModel.getList(where, fields, orderBy, page, size, isTotal, oldTotal);
+	}
 
-    /**删除数据 */
-    async delEnroll (id) {
-        let where = {
-            _id: id
-        }
-        let effect = await EnrollModel.del(where);
+	/**置顶与排序设定 */
+	async sortEnroll(id, sort) {
+		let whereJoin = {
+			_id: id,
+		}
+		let data = {
+			ENROLL_ORDER: sort,
+		}
+		await EnrollModel.edit(whereJoin, data);
+		return
+	}
 
-        return {
-            effect
-        };
-    }
+	/**首页设定 */
+	async vouchEnroll(id, vouch) {
+		let whereJoin = {
+			_id: id,
+		}
+		let data = {
+			ENROLL_VOUCH: vouch,
+		}
+		await EnrollModel.edit(whereJoin, data);
+		return
+	}
 
-    /**获取信息 */
-    async getEnrollDetail (id) {
-        let fields = '*';
-
-        let where = {
-            _id: id
-        }
-
-        let enroll = await EnrollModel.getOne(where, fields);
-        if (!enroll) return null;
-
-        return enroll;
-    }
-
-    // 更新forms信息
-    async updateEnrollForms ({
-        id,
-        hasImageForms
-    }) {
-        let whereJoin = {
-            _id: id,
-        }
-        let data = {
-            ENROLL_FORMS: hasImageForms,
-        }
-        await EnrollModel.edit(whereJoin, data);
-        return
-    }
-
-
-    /**更新数据 */
-    async editEnroll ({
-        id,
-        title,
-        cateId, // 二级分类 
-        cateName,
-
-
-        checkSet,
-        cancelSet,
-        editSet,
-
-        order,
-        forms,
-        joinForms
-    }) {
-        let whereJoin = {
-            _id: id,
-        }
-        // 入库
-        let data = {
-            ENROLL_TITLE: title,
-            ENROLL_CATE_ID: cateId,
-            ENROLL_CATE_NAME: cateName,
+	/**添加 */
+	async insertEnroll({
+		title,
+		cateId,
+		cateName,
 
 
-            ENROLL_CHECK_SET: checkSet,
-            ENROLL_CANCEL_SET: cancelSet,
-            ENROLL_EDIT_SET: editSet,
+		checkSet,
+		cancelSet,
+		editSet,
 
-            ENROLL_ORDER: order,
-            ENROLL_FORMS: forms,
-            ENROLL_JOIN_FORMS: joinForms,
-        }
-
-        await EnrollModel.edit(whereJoin, data);
-        return
-    }
-
-    /**修改状态 */
-    async statusEnroll (id, status) {
-        let whereJoin = {
-            _id: id,
-        }
-        let data = {
-            ENROLL_STATUS: status,
-        }
-        await EnrollModel.edit(whereJoin, data);
-        return
-    }
+		order,
+		forms,
+		joinForms,
+	}) {
+		// 入库
+		let data = {
+			ENROLL_TITLE: title,
+			ENROLL_CATE_ID: cateId,
+			ENROLL_CATE_NAME: cateName,
 
 
-    //#############################
-    /**登记分页列表 */
-    async getEnrollJoinList ({
-        search, // 搜索条件
-        sortType, // 搜索菜单
-        sortVal, // 搜索菜单
-        orderBy, // 排序
-        enrollId,
-        page,
-        size,
-        isTotal = true,
-        oldTotal
-    }) {
+			ENROLL_CHECK_SET: checkSet,
+			ENROLL_CANCEL_SET: cancelSet,
+			ENROLL_EDIT_SET: editSet,
 
-        orderBy = orderBy || {
-            'ENROLL_JOIN_LAST_TIME': 'desc'
-        };
-        let fields = 'ENROLL_JOIN_START,ENROLL_JOIN_DAY,ENROLL_JOIN_END_POINT,ENROLL_JOIN_FORMS,ENROLL_JOIN_STATUS,ENROLL_JOIN_ADD_TIME,user.USER_NAME,user.USER_MOBILE';
+			ENROLL_ORDER: order,
+			ENROLL_FORMS: forms,
+			ENROLL_JOIN_FORMS: joinForms,
+		}
 
-        let where = {
-            ENROLL_JOIN_ENROLL_ID: enrollId
-        };
-        if (util.isDefined(search) && search) {
-            where['ENROLL_JOIN_FORMS.val'] = {
-                $regex: '.*' + search,
-                $options: 'i'
-            };
-        } else if (sortType && util.isDefined(sortVal)) {
-            // 搜索菜单
-            switch (sortType) {
-                case 'status':
-                    where.ENROLL_JOIN_STATUS = Number(sortVal);
-                    break;
-            }
-        }
+		const id = await EnrollModel.insert(data);
+		return {
+			id
+		}
+	}
 
-        return await EnrollJoinModel.getList(where, fields, orderBy, page, size, isTotal, oldTotal);
-    }
+	/**删除数据 */
+	async delEnroll(id) {
+		let where = {
+			_id: id
+		}
+		let effect = await EnrollModel.del(where);
 
-    /**修改登记状态 
-     */
-    async statusEnrollJoin (enrollJoinId, status, reason = '') {
+		return {
+			effect
+		};
+	}
+
+	/**获取信息 */
+	async getEnrollDetail(id) {
+		let fields = '*';
+
+		let where = {
+			_id: id
+		}
+
+		let enroll = await EnrollModel.getOne(where, fields);
+		if (!enroll) return null;
+
+		return enroll;
+	}
+
+	// 更新forms信息
+	async updateEnrollForms({
+		id,
+		hasImageForms
+	}) {
+		let whereJoin = {
+			_id: id,
+		}
+		let data = {
+			ENROLL_FORMS: hasImageForms,
+		}
+		await EnrollModel.edit(whereJoin, data);
+		return
+	}
+
+
+	/**更新数据 */
+	async editEnroll({
+		id,
+		title,
+		cateId, // 二级分类 
+		cateName,
+
+
+		checkSet,
+		cancelSet,
+		editSet,
+
+		order,
+		forms,
+		joinForms
+	}) {
+		let whereJoin = {
+			_id: id,
+		}
+		// 入库
+		let data = {
+			ENROLL_TITLE: title,
+			ENROLL_CATE_ID: cateId,
+			ENROLL_CATE_NAME: cateName,
+
+
+			ENROLL_CHECK_SET: checkSet,
+			ENROLL_CANCEL_SET: cancelSet,
+			ENROLL_EDIT_SET: editSet,
+
+			ENROLL_ORDER: order,
+			ENROLL_FORMS: forms,
+			ENROLL_JOIN_FORMS: joinForms,
+		}
+
+		await EnrollModel.edit(whereJoin, data);
+		return
+	}
+
+	/**修改状态 */
+	async statusEnroll(id, status) {
+		let whereJoin = {
+			_id: id,
+		}
+		let data = {
+			ENROLL_STATUS: status,
+		}
+		await EnrollModel.edit(whereJoin, data);
+		return
+	}
+
+
+	//#############################
+	/**登记分页列表 */
+	async getEnrollJoinList({
+		search, // 搜索条件
+		sortType, // 搜索菜单
+		sortVal, // 搜索菜单
+		orderBy, // 排序
+		enrollId,
+		page,
+		size,
+		isTotal = true,
+		oldTotal
+	}) {
+
+		orderBy = orderBy || {
+			'ENROLL_JOIN_LAST_TIME': 'desc'
+		};
+		let fields = 'ENROLL_JOIN_START,ENROLL_JOIN_DAY,ENROLL_JOIN_END_POINT,ENROLL_JOIN_FORMS,ENROLL_JOIN_STATUS,ENROLL_JOIN_ADD_TIME,user.USER_NAME,user.USER_MOBILE';
+
+		let where = {
+			ENROLL_JOIN_ENROLL_ID: enrollId
+		};
+		if (util.isDefined(search) && search) {
+			where['ENROLL_JOIN_FORMS.val'] = {
+				$regex: '.*' + search,
+				$options: 'i'
+			};
+		} else if (sortType && util.isDefined(sortVal)) {
+			// 搜索菜单
+			switch (sortType) {
+				case 'status':
+					where.ENROLL_JOIN_STATUS = Number(sortVal);
+					break;
+			}
+		}
+
+		return await EnrollJoinModel.getList(where, fields, orderBy, page, size, isTotal, oldTotal);
+	}
+
+	/**修改登记状态 
+	 */
+	async statusEnrollJoin(enrollJoinId, status, reason = '') {
 		let whereJoin = {
 			ENROLL_JOIN_ID: enrollJoinId,
-	    }
+		}
 		let data = {
-			ENROLL_JOIN_REASON:reason,
-		    ENROLL_JOIN_STATUS:status
+			ENROLL_JOIN_REASON: reason,
+			ENROLL_JOIN_STATUS: status
 		}
 		await EnrollJoinModel.edit(whereJoin, data);
 		return
-    }
+	}
 
 
-    /** 取消某项目所有记录 */
-    async cancelEnrollJoinAll (enrollId, reason) {
-        let whereJoin = {
+	/** 取消某项目所有记录 */
+	async cancelEnrollJoinAll(enrollId, reason) {
+		let whereJoin = {
 			ENROLL_JOIN_ENROLL_ID: enrollId,
-	    }
+		}
 		let data = {
-		    ENROLL_JOIN_STATUS:status
+			ENROLL_JOIN_STATUS: status
 		}
 		await EnrollJoinModel.edit(whereJoin, data);
 		return
-    }
+	}
 
-    /** 清空 */
-    async clearEnrollAll (enrollId) {
-        let where = {
+	/** 清空 */
+	async clearEnrollAll(enrollId) {
+		let where = {
 			ENROLL_JOIN_ENROLL_ID: enrollId
 		}
 		let effect = await EnrollJoinModel.del(where);
@@ -314,12 +323,12 @@ class AdminEnrollService extends BaseProjectAdminService {
 		return {
 			effect
 		};
-    }
+	}
 
 
-    /** 删除登记 */
-    async delEnrollJoin (enrollJoinId) {
-        let where = {
+	/** 删除登记 */
+	async delEnrollJoin(enrollJoinId) {
+		let where = {
 			_id: enrollJoinId
 		}
 		let effect = await EnrollJoinModel.del(where);
@@ -327,35 +336,40 @@ class AdminEnrollService extends BaseProjectAdminService {
 		return {
 			effect
 		};
-    }
+	}
 
-    // #####################导出登记数据
-    /**获取登记数据 */
-    async getEnrollJoinDataURL () {
-        return await exportUtil.getExportDataURL(EXPORT_ENROLL_JOIN_DATA_KEY);
-    }
+	// #####################导出登记数据
+	/**获取登记数据 */
+	async getEnrollJoinDataURL() {
+		return await exportUtil.getExportDataURL(EXPORT_ENROLL_JOIN_DATA_KEY);
+	}
 
-    /**删除登记数据 */
-    async deleteEnrollJoinDataExcel () {
-        return await exportUtil.deleteDataExcel(EXPORT_ENROLL_JOIN_DATA_KEY);
-    }
+	/**删除登记数据 */
+	async deleteEnrollJoinDataExcel() {
+		return await exportUtil.deleteDataExcel(EXPORT_ENROLL_JOIN_DATA_KEY);
+	}
 
-    /**导出登记数据 */
-    async exportEnrollJoinDataExcel ({
-        enrollId,
-        status
-    }) {
+	/**导出登记数据 */
+	async exportEnrollJoinDataExcel({
+		enrollId,
+		status
+	}) {
 		const where = {
 			ENROLL_JOIN_ID: enrollId,
 			ENROLL_JOIN_STATUS: status
-		} 
+		}
 		let result = await EnrollJoinModel.getAll(where);
 		const total = result.length
-		const titleName = ['预约时间','预约日期','开始时间','结束时间']
-		const titleKey = ['ENROLL_JOIN_FORMS','ENROLL_JOIN_DAY','ENROLL_JOIN_START','ENROLL_JOIN_END']
-		let data = result.map(item => titleKey.map(key => item[key]))
-		return await exportUtil.exportDataExcel(EXPORT_ENROLL_JOIN_DATA_KEY,'用户数据', total, [titleName,...data]);
-    }
+		const titleName = ['预约信息', '预约日期', '开始时间', '结束时间']
+		const titleKey = ['ENROLL_JOIN_FORMS',
+			(item) => timeUtil.timestamp2Time(String(item.ENROLL_JOIN_DAY)),
+			(item) => timeUtil.timestamp2Time(String(item.ENROLL_JOIN_START)),
+			(item) => timeUtil.timestamp2Time(String(item.ENROLL_JOIN_END))
+		]
+		let data = result.map(item => titleKey.map(key => isString(key) ? item[key] : key(item)))
+		console.log(data)
+		return await exportUtil.exportDataExcel(EXPORT_ENROLL_JOIN_DATA_KEY, '座位预定信息', total, [titleName, ...data]);
+	}
 
 }
 
