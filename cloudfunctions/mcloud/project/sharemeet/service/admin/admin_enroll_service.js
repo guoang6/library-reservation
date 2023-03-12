@@ -140,8 +140,8 @@ class AdminEnrollService extends BaseProjectAdminService {
             ENROLL_JOIN_FORMS: joinForms,
         }
 
-        await EnrollModel.insert(data);
-        return
+        const id  = await EnrollModel.insert(data);
+        return {id}
     }
 
     /**删除数据 */
@@ -280,27 +280,53 @@ class AdminEnrollService extends BaseProjectAdminService {
     /**修改登记状态 
      */
     async statusEnrollJoin (enrollJoinId, status, reason = '') {
-        this.AppError('该功能暂不开放，如有需要请加作者微信：g13340110576');
-
+		let whereJoin = {
+			ENROLL_JOIN_ID: enrollJoinId,
+	    }
+		let data = {
+			ENROLL_JOIN_REASON:reason,
+		    ENROLL_JOIN_STATUS:status
+		}
+		await EnrollJoinModel.edit(whereJoin, data);
+		return
     }
 
 
     /** 取消某项目所有记录 */
     async cancelEnrollJoinAll (enrollId, reason) {
-        this.AppError('该功能暂不开放，如有需要请加作者微信：g13340110576');
-
+        let whereJoin = {
+			ENROLL_JOIN_ENROLL_ID: enrollId,
+	    }
+		let data = {
+		    ENROLL_JOIN_STATUS:status
+		}
+		await EnrollJoinModel.edit(whereJoin, data);
+		return
     }
 
     /** 清空 */
     async clearEnrollAll (enrollId) {
-        this.AppError('该功能暂不开放，如有需要请加作者微信：g13340110576');
+        let where = {
+			ENROLL_JOIN_ENROLL_ID: enrollId
+		}
+		let effect = await EnrollJoinModel.del(where);
+
+		return {
+			effect
+		};
     }
 
 
     /** 删除登记 */
     async delEnrollJoin (enrollJoinId) {
-        this.AppError('该功能暂不开放，如有需要请加作者微信：g13340110576');
+        let where = {
+			_id: enrollJoinId
+		}
+		let effect = await EnrollJoinModel.del(where);
 
+		return {
+			effect
+		};
     }
 
     // #####################导出登记数据

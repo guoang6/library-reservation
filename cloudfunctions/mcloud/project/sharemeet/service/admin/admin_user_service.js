@@ -87,12 +87,27 @@ class AdminUserService extends BaseProjectAdminService {
 	}
 
 	async statusUser(id, status, reason) {
-		this.AppError('该功能暂不开放，如有需要请加作者微信：g13340110576');
+		let whereJoin = {
+			_id: id,
+		}
+		let data = {
+			USER_STATUS: status,
+			USER_CHECK_REASON:reason
+		}
+		await NewsModel.edit(whereJoin, data);
+		return
 	}
 
 	/**删除用户 */
 	async delUser(id) {
-		this.AppError('该功能暂不开放，如有需要请加作者微信：g13340110576');
+		let where = {
+			_id: id
+		}
+		let effect = await UserModel.del(where);
+
+		return {
+			effect
+		};
 
 	}
 
@@ -110,9 +125,7 @@ class AdminUserService extends BaseProjectAdminService {
 
 	/**导出用户数据 */
 	async exportUserDataExcel(condition, fields) {
-
-		this.AppError('该功能暂不开放，如有需要请加作者微信：g13340110576');
-
+		return await exportUtil.getExportDataURL(EXPORT_USER_DATA_KEY);
 	}
 
 }
