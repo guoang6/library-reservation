@@ -345,8 +345,16 @@ class AdminEnrollService extends BaseProjectAdminService {
         enrollId,
         status
     }) {
-        this.AppError('该功能暂不开放，如有需要请加作者微信：g13340110576');
-
+		const where = {
+			ENROLL_JOIN_ID: enrollId,
+			ENROLL_JOIN_STATUS: status
+		} 
+		let result = await EnrollJoinModel.getAll(where);
+		const total = result.length
+		const titleName = ['预约时间','预约日期','开始时间','结束时间']
+		const titleKey = ['ENROLL_JOIN_FORMS','ENROLL_JOIN_DAY','ENROLL_JOIN_START','ENROLL_JOIN_END']
+		let data = result.map(item => titleKey.map(key => item[key]))
+		return await exportUtil.exportDataExcel(EXPORT_ENROLL_JOIN_DATA_KEY,'用户数据', total, [titleName,...data]);
     }
 
 }

@@ -125,7 +125,13 @@ class AdminUserService extends BaseProjectAdminService {
 
 	/**导出用户数据 */
 	async exportUserDataExcel(condition, fields) {
-		return await exportUtil.getExportDataURL(EXPORT_USER_DATA_KEY);
+        const where = {}
+		let result = await UserModel.getAll(where);
+		const total = result.length
+		const titleName = ['用户昵称','联系电话','状态','创建时间']
+		const titleKey = ['USER_NAME','USER_MOBILE','USER_STATUS','USER_ADD_TIME']
+		let data = result.map(item => titleKey.map(key => item[key]))
+		return await exportUtil.exportDataExcel(EXPORT_USER_DATA_KEY,'用户数据', total, [titleName,...data]);
 	}
 
 }
